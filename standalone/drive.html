@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive - OneDrive to Google Drive Transition</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="tool-page">
+    <div class="container">
+        <button class="back-button" onclick="navigateHome()">
+            <i data-lucide="arrow-left"></i>
+            Back to Home
+        </button>
+
+        <div class="tool-header">
+            <i data-lucide="hard-drive" class="tool-header-icon"></i>
+            <div>
+                <h1>Google Drive</h1>
+                <p>OneDrive → Google Drive</p>
+            </div>
+        </div>
+
+        <div class="page-grid">
+            <div class="main-content">
+                <div class="card">
+                    <h2 class="card-title">What is Google Drive?</h2>
+                    <p class="card-description">
+                        Google Drive is a cloud storage service that seamlessly integrates with all Google Workspace apps. It allows real-time collaboration on documents, provides shared drives for team collaboration, and automatically saves version history for all files.
+                    </p>
+                    <a href="https://drive.google.com/drive/my-drive" target="_blank" class="back-button" style="display: inline-flex; margin-top: 1rem;">
+                        Open Google Drive
+                        <i data-lucide="external-link" style="margin-left: 0.5rem;"></i>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">My Drive - File Management</h2>
+                    <p class="card-description">Learn how to navigate and manage files in Google Drive</p>
+                    
+                    <div class="video-container">
+                        <video src="../public/images/Drive/MyDrive/Kapture2025-10-09at11.06.36-ezgif.com-gif-to-mp4-converter.mp4" autoplay loop muted playsinline preload="auto"></video>
+                    </div>
+
+                    <div class="lab-section">
+                        <div class="lab-header">
+                            <h4>Try it yourself - Interactive Lab</h4>
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="../public/images/Drive/MyDrive/MyDrive_lab.html" title="MyDrive Lab"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">Share Files and Folders</h2>
+                    <p class="card-description">Learn how to share files with others</p>
+                    
+                    <div class="video-container">
+                        <video src="../public/images/Drive/Share/Kapture2025-10-09at11.24.45-ezgif.com-gif-to-mp4-converter.mp4" autoplay loop muted playsinline preload="auto"></video>
+                    </div>
+
+                    <div class="lab-section">
+                        <div class="lab-header">
+                            <h4>Try it yourself - Interactive Lab</h4>
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="../public/images/Drive/Share/Share_lab.html" title="Share Lab"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">Move Files Between Folders</h2>
+                    <p class="card-description">Learn how to organize files by moving them</p>
+                    
+                    <div class="video-container">
+                        <video src="../public/images/Drive/Move/Kapture2025-10-09at11.16.44-ezgif.com-gif-to-mp4-converter.mp4" autoplay loop muted playsinline preload="auto"></video>
+                    </div>
+
+                    <div class="lab-section">
+                        <div class="lab-header">
+                            <h4>Try it yourself - Interactive Lab</h4>
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="../public/images/Drive/Move/Move_lab.html" title="Move Lab"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <div class="card">
+                    <h3 class="card-title">Tips & Tricks</h3>
+                    <div>
+                        <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Quick Actions</h4>
+                        <ul class="tips-list">
+                            <li>• Right-click files to share</li>
+                            <li>• Use 'Shared with me' to find shared files</li>
+                            <li>• Enable offline access for important files</li>
+                            <li>• Organize with folders and colors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-bottom: 2rem;">
+            <button class="back-button" onclick="navigateHome()">
+                <i data-lucide="arrow-left"></i>
+                Back to Main Menu
+            </button>
+        </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script>
+        lucide.createIcons();
+        updateCompletionCheck('drive');
+        
+        window.addEventListener('message', function(event) {
+            if (event.data?.type === 'lab-complete' && event.data?.lab) {
+                const labName = event.data.lab;
+                const labMap = {
+                    'drive-mydrive': 'MyDrive',
+                    'drive-share': 'Share',
+                    'drive-move': 'Move'
+                };
+                const mappedLab = labMap[labName] || labName;
+                markLabComplete('drive', mappedLab);
+            }
+        });
+    </script>
+</body>
+</html>
