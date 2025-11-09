@@ -55,9 +55,3 @@ Google_Guidelines_StaticWeb/
 - Include feedback and quiz functionality  
 - Improve accessibility (WCAG compliance)  
 - Provide multilingual support  
-
----
-
-## Author
-**Yaniv Gold**  
-[Project Demo](https://yanivgold04.github.io/Google_Guidlines_StaticWeb/standalone/index.html)
